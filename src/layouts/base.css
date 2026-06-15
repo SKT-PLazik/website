@@ -17,3 +17,12 @@ html {
   background-image: radial-gradient(#86efac 2px, transparent 2px);
   background-size: 24px 24px;
 }
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.text-alter {
+  font-family: var(--font-cursive);
+}

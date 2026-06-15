@@ -1,8 +1,15 @@
 // @ts-check
-import { defineConfig, logHandlers } from 'astro/config';
+import { defineConfig, fontProviders, logHandlers } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+    fonts: [{
+        provider: fontProviders.google(),
+        name: "Patrick Hand",
+        subsets: ["latin", "latin-ext"],
+        cssVariable: "--font-cursive",
+        fallbacks: ["cursive"]
+    }],
     experimental: {
         logger: logHandlers.console()
     }

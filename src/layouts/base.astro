@@ -1,6 +1,9 @@
 ---
 import "./base.css";
 
+import Footer from "../components/footer.astro"
+import { Font } from "astro:assets";
+
 interface Props {
   title?: string;
   description?: string;
@@ -19,8 +22,13 @@ if (!description) Astro.logger?.warn(`Page without description (can affect SEO):
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <title>{title && `${title} | `} SKT "PŁazik"</title>
+    {description && <meta name="description" content={description} />}
+    <Font cssVariable="--font-cursive" />
   </head>
   <body>
-    <slot />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
