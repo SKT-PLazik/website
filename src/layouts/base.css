@@ -1,5 +1,19 @@
+:root {
+  --c-background: #f0fdf4; 
+  --c-surface: #ffffff;
+  --c-outline-h: rgb(26 46 5);
+
+  --c-secondary: rgb(63 98 18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
-  background-color: #f0fdf4;
+  background-color: var(--c-background);
   background-image: radial-gradient(#86efac 2px, transparent 2px);
   background-size: 24px 24px;
 }
