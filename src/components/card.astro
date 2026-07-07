@@ -1,0 +1,26 @@
+---
+
+const { class: cardClass } = Astro.props;
+
+---
+
+<style>
+    .container {
+        background-color: var(--c-surface);
+        border-radius: var(--radius);
+
+        box-shadow: var(--shadow-distance) var(--shadow-distance) 0px -1px var(--c-shadow-hard);
+        margin-right: var(--shadow-distance);
+        margin-bottom: var(--shadow-distance);
+        
+        padding: 1rem;
+        border: 2.2px solid;
+
+
+        overflow: visible;
+    }
+</style>
+
+<div class:list={[cardClass, "container"]}>
+    <slot />
+</div>
