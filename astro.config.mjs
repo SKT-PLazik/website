@@ -10,6 +10,7 @@ export default defineConfig({
         cssVariable: "--font-cursive",
         fallbacks: ["cursive"]
     }],
+    scopedStyleStrategy: "where",
     experimental: {
         logger: logHandlers.console()
     }
