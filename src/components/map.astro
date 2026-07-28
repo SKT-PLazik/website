@@ -1,0 +1,28 @@
+---
+const { class: containerClass } = Astro.props;
+
+---
+
+<div id="map" class:list={[containerClass]}></div>
+<script>
+import {Map, setWorkerUrl} from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
+
+setWorkerUrl(workerUrl);
+
+const map = new Map({
+    container: 'map', // container id
+    style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=9e8fYbliq9AKZ4npgp3d', // style URL
+    center: [19.449833, 51.746042], // starting position [lng, lat]
+    zoom: 16.5, // starting zoom,
+    bearing: 323,
+    dragPan: false,
+    aroundCenter: false,
+    dragRotate: true,
+    maxPitch: 80,
+    pitch: 80,
+    cooperativeGestures: true,
+    attributionControl: false
+});
+</script>

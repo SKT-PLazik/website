@@ -11,5 +11,8 @@ export default defineConfig({
         fallbacks: ["cursive"]
     }],
     scopedStyleStrategy: "where",
-    logger: logHandlers.console()
+    logger: logHandlers.console(),
+    vite: {
+         ssr: {noExternal: ['maplibre-gl']}
+    }
 });
