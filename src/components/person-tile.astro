@@ -1,0 +1,45 @@
+---
+
+const { name, role, email, "phone-number": phoneNumber} = Astro.props;
+
+---
+
+<style>
+    .person-tile {
+        padding: .5rem;
+        padding-right: 1rem;
+        
+        border-radius: var(--radius);
+        background-color: var(--c-surface);
+
+        border: 2px dashed var(--c-outline-h);
+        width: max-content;
+        min-width: max-content;
+        
+    }
+
+    .name {
+        line-height: .95;
+    }
+
+    .role {
+        font-size: .8rem;
+        color: var(--c-text-soft);
+    }
+
+    .contact {
+        margin-top: .25rem;
+        font-size: .9rem;
+        color: var(--c-text-soft);
+    }
+
+</style>
+
+<div class="person-tile">
+    <h3 class="name">{name}</h3>
+    <div class="role">{role}         </div>
+    <div class="contact">
+        <div class="email">{email}        </div>
+        <div class="phone">{phoneNumber}  </div>
+    </div>
+</div>
