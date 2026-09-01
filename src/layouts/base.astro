@@ -7,9 +7,10 @@ import { Font } from "astro:assets";
 interface Props {
   title?: string;
   description?: string;
+  class?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, class: mainClass } = Astro.props;
 const currentPath = Astro.routePattern;
 
 if (!description) Astro.logger?.warn(`Page without description (can affect SEO): ${currentPath}`)
@@ -26,7 +27,7 @@ if (!description) Astro.logger?.warn(`Page without description (can affect SEO):
     <Font cssVariable="--font-cursive" />
   </head>
   <body>
-    <main>
+    <main class:list={[mainClass]}>
       <slot />
     </main>
     <Footer />

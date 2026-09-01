@@ -1,14 +1,15 @@
 :root {
-  --c-background: #f0fdf4; 
+  --c-background: rgb(251, 252, 250);
   --c-surface: #ffffff;
-  --c-outline-h: rgb(26 46 5);
+  --c-surface-alt: #DDEFD8;
+  --c-outline-h: rgb(152, 152, 152);
 
   --c-secondary: rgb(63 98 18);
 
-  --radius: .4rem;
+  --radius: 8px;
   
   --shadow-distance: 4px;
-  --c-shadow-hard: rgb(0 0 0);
+  --c-shadow-hard: var(--c-outline-h);
 }
 
 * {
@@ -18,14 +19,26 @@
 }
 
 html {
+  background-size: 18px 18px;
   background-color: var(--c-background);
-  background-image: radial-gradient(#86efac 2px, transparent 2px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(circle at 1px 1px,
+      rgba(21, 23, 22, 0.055) 1px,
+      transparent 0);
+
 }
 
 body {
   position: relative;
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  min-height: 100%;
+  flex: 1;
 }
 
 .text-alter {
