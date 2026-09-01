@@ -11,7 +11,5 @@ export default defineConfig({
         fallbacks: ["cursive"]
     }],
     scopedStyleStrategy: "where",
-    experimental: {
-        logger: logHandlers.console()
-    }
+    logger: logHandlers.console()
 });

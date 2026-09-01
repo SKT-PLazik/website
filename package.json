@@ -6,12 +6,15 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "astro": "bunx --bun astro",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^6.4.7"
+    "astro": "^7.2.10"
+  },
+  "allowScripts": {
+    "esbuild": true
   }
 }
