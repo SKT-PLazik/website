@@ -6,10 +6,10 @@
 
   --c-secondary: rgb(63 98 18);
 
-  --radius: 8px;
+  --radius: .70rem;
   
-  --shadow-distance: 4px;
-  --c-shadow-hard: var(--c-outline-h);
+  --shadow-distance: 7px;
+  --c-shadow-hard:rgba(37, 116, 68, 0.16);
 }
 
 * {
