@@ -1,0 +1,180 @@
+---
+
+---
+
+<section class="hero-section">
+  <div class="hero-content">
+    <div class="eyebrow-wrapper">
+      <span class="eyebrow text-alter">[ TOŻSAMOŚĆ KLUBU #01 ]</span>
+    </div>
+
+    <h1 class="hero-title">
+      SKT PŁAZIK. EKIPA Z <span class="highlight">ZIELONEGO SZLAKU.</span>
+    </h1>
+
+    <p class="hero-description">
+      Jesteśmy studenckim klubem turystycznym dla tych, którym nie chce się siedzieć w miejscu. Organizujemy wędrówki, obozowiska i rajdy, na których liczy się błoto na butach i wieczorne gadanie przy świetle czołówki. Dołącz do stada!
+    </p>
+
+    <div class="hero-actions">
+      <a href="/dolacz" class="btn btn-primary">Chcę dołączyć -></a>
+      <a href="/harmonogram" class="btn btn-secondary">Zobacz harmonogram</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="polaroid">
+      <div class="image-placeholder">
+        <img
+            src="https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2.jpg"
+            alt="Ekipa Płazika na szlaku"
+            width="600"
+            height="500"
+        />
+      </div>
+      <div class="polaroid-caption text-alter">
+        RYS 1: Ekipa w swoim żywiole
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero-section {
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+    }
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .eyebrow-wrapper {
+    background-color: var(--c-surface);
+    border: 2px solid var(--c-outline-h);
+    padding: 0.25rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--c-shadow-hard);
+    transform: rotate(-2deg);
+  }
+
+  .eyebrow {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--c-secondary);
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    font-weight: 900;
+    color: var(--c-outline-h);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    text-wrap: balance;
+    max-width: 900px;
+  }
+
+  .highlight {
+    background-color: var(--c-secondary);
+    color: var(--c-surface);
+    padding: 0 0.5rem;
+    display: inline-block;
+    box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--c-shadow-hard);
+    transform: rotate(1deg);
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--c-outline-h);
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    text-decoration: none;
+    font-weight: 800;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--c-outline-h);
+    box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--c-shadow-hard);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, outline-offset 0.1s ease;
+  }
+
+  .btn:active {
+    transform: translate(var(--shadow-distance), var(--shadow-distance));
+    box-shadow: 0 0 0 var(--c-shadow-hard);
+  }
+
+  .btn:focus-visible {
+    outline: 3px dashed var(--c-outline-h);
+    outline-offset: 4px;
+  }
+
+  .btn-primary {
+    background-color: var(--c-secondary);
+    color: var(--c-surface);
+  }
+
+  .btn-secondary {
+    background-color: var(--c-surface);
+    color: var(--c-outline-h);
+  }
+
+  .hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .polaroid {
+    background-color: var(--c-surface);
+    border: 3px solid var(--c-outline-h);
+    padding: 1rem 1rem 1.5rem 1rem;
+    box-shadow: calc(var(--shadow-distance) * 2) calc(var(--shadow-distance) * 2) 0 var(--c-shadow-hard);
+    transform: rotate(3deg);
+    transition: transform 0.3s ease;
+  }
+
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  .image-placeholder img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 6 / 5;
+    display: block;
+    border: 2px solid var(--c-outline-h);
+  }
+
+  .polaroid-caption {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--c-secondary);
+    font-weight: bold;
+  }
+</style>
