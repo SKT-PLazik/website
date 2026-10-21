@@ -1,0 +1,298 @@
+---
+// src/components/contact.astro
+
+const clubAddress = "Al. Politechniki 9, 93-590 Łódź";
+const meetingInfo = "Zebrania: wtorki, godz. 20:00";
+// Wklejony poprawny link do mapy
+const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19757.56877401865!2d19.455579450000002!3d51.7568805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a34de6f0894b3%3A0xee97eef3413e2448!2sStudencki%20Klub%20Turystyczny%20%22P%C5%81azik%22!5e0!3m2!1spl!2spl!4v1792608562208!5m2!1spl!2spl";
+
+const presidentName = "Andrzej Sobiański";
+const contactEmail = "klub@plazik.pl";
+---
+
+<section class="contact-section" id="kontakt">
+    <div class="contact-header">
+        <div class="tag-wrapper">
+            <span class="tag text-alter">[ LOKALIZACJA & KONTAKT ]</span>
+        </div>
+        <h2 class="section-title">Gdzie nas złapać?</h2>
+        <p class="section-subtitle">
+            Masz pytania o najbliższy rajd, chcesz wpaść na herbatę, albo po prostu pogadać o górach? Wpadnij do naszej klubowej nory w centrum kampusu Politechniki Łódzkiej.
+        </p>
+    </div>
+
+    <div class="contact-grid">
+        <!-- LEWA KOLUMNA: Dane kontaktowe -->
+        <div class="info-card">
+
+            <div class="info-group">
+                <div class="icon-box">📍</div>
+                <div>
+                    <h3>Siedziba Klubu</h3>
+                    <p class="data-main">{clubAddress}</p>
+                    <p class="data-sub">{meetingInfo}</p>
+                </div>
+            </div>
+
+            <hr class="divider" />
+
+            <div class="info-group">
+                <div class="icon-box">👑</div>
+                <div>
+                    <h3>Władze Klubu</h3>
+                    <p class="data-main">Prezes: <strong>{presidentName}</strong></p>
+                    <p class="data-sub">Mail: <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
+                </div>
+            </div>
+
+            <hr class="divider" />
+
+            <div class="info-group">
+                <div class="icon-box">💸</div>
+                <div class="bank-wrapper">
+                    <h3>Dane do Przelewu</h3>
+                    <!-- Stylizacja na żółtą karteczkę (sticky note) -->
+                    <div class="bank-details">
+                        <div class="pin"></div>
+                        <p><strong>Odbiorca:</strong> Studencki Klub Turystyczny "PŁazik"</p>
+                        <p><strong>Nr konta:</strong> <br/> 16 1020 3408 0000 4602 0118 4654 Chyba</p>
+                        <p><strong>Bank:</strong> PKO BP SA (Oddział 6 w Łodzi) A bo ja wiem?</p>
+                        <div class="tax-info">
+                            <span>NIP: 727-106-24-88 Niech ktoś to sprawdzi</span>
+                            <span>KRS: 0000062600 To też</span>
+                            <span>REGON: 470746072 I to też</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRAWA KOLUMNA: Mapa -->
+        <div class="map-wrapper">
+            <div class="map-container">
+                <div class="map-header text-alter">
+                    <span>ZNAJDŹ NAS TUTAJ</span>
+                </div>
+                <iframe
+                        src={mapUrl}
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+            <div class="map-caption text-alter">
+                Al. Politechniki 9 (Kampus PŁ)
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+        border-top: 2px dashed var(--c-outline-h);
+    }
+
+    .contact-header {
+        margin-bottom: 3rem;
+    }
+
+    .tag-wrapper {
+        display: inline-block;
+        background-color: var(--c-surface);
+        border: 2px solid var(--c-outline-h);
+        padding: 0.25rem 0.75rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        box-shadow: 2px 2px 0 var(--c-outline-h);
+        transform: rotate(-1deg);
+    }
+
+    .section-title {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        font-weight: 900;
+        color: var(--c-outline-h);
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        letter-spacing: -1px;
+        line-height: 1.1;
+    }
+
+    .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--c-outline-h);
+        max-width: 650px;
+        line-height: 1.6;
+        font-weight: 500;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    @media (min-width: 900px) {
+        .contact-grid {
+            grid-template-columns: 1fr 1.2fr;
+        }
+    }
+
+    /* LEWA KOLUMNA */
+    .info-card {
+        background-color: var(--c-surface);
+        border: 3px solid var(--c-outline-h);
+        padding: 2.5rem;
+        box-shadow: 6px 6px 0 var(--c-shadow-hard);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .info-group {
+        display: flex;
+        gap: 1.25rem;
+        align-items: flex-start;
+    }
+
+    .icon-box {
+        font-size: 1.5rem;
+        background-color: var(--c-background);
+        border: 2px solid var(--c-outline-h);
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 2px 2px 0 var(--c-shadow-hard);
+    }
+
+    .info-group h3 {
+        font-size: 1.25rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        color: var(--c-outline-h);
+    }
+
+    .data-main {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--c-outline-h);
+        margin-bottom: 0.25rem;
+    }
+
+    .data-sub {
+        font-size: 0.95rem;
+        color: var(--c-secondary);
+        font-family: monospace;
+        margin-bottom: 0.25rem;
+    }
+
+    .data-sub a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .divider {
+        border: none;
+        border-top: 2px dashed var(--c-outline-h);
+        margin: 0.5rem 0;
+        opacity: 0.3;
+    }
+
+    /* Sticky note dla danych bankowych */
+    .bank-wrapper {
+        width: 100%;
+    }
+
+    .bank-details {
+        position: relative;
+        background-color: #fef08a; /* Żółty jak karteczka */
+        padding: 1.5rem 1rem 1rem 1rem;
+        border: 2px solid var(--c-outline-h);
+        box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+        transform: rotate(1deg);
+        font-family: monospace;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #422006;
+        margin-top: 0.5rem;
+    }
+
+    .pin {
+        position: absolute;
+        top: -8px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 16px;
+        height: 16px;
+        background-color: #ef4444;
+        border-radius: 50%;
+        border: 2px solid var(--c-outline-h);
+        box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+    }
+
+    .tax-info {
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+        border-top: 1px dashed #a16207;
+        display: flex;
+        flex-direction: column;
+        font-size: 0.85rem;
+    }
+
+    /* PRAWA KOLUMNA: Mapa */
+    .map-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .map-container {
+        height: 450px;
+        border: 3px solid var(--c-outline-h);
+        box-shadow: 6px 6px 0 var(--c-shadow-hard);
+        background-color: var(--c-surface);
+        display: flex;
+        flex-direction: column;
+        transform: rotate(1deg);
+        transition: transform 0.3s ease;
+    }
+
+    .map-container:hover {
+        transform: rotate(0deg) scale(1.01);
+    }
+
+    .map-header {
+        background-color: var(--c-secondary);
+        color: var(--c-surface);
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+        border-bottom: 3px solid var(--c-outline-h);
+        text-align: center;
+        letter-spacing: 1px;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        flex-grow: 1;
+        filter: grayscale(20%) contrast(110%); /* Lekki efekt dopasowania */
+    }
+
+    .map-caption {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+        color: var(--c-secondary);
+        font-weight: bold;
+    }
+</style>
