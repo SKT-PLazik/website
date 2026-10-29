@@ -15,6 +15,8 @@ const { name, role, email, "phone-number": phoneNumber} = Astro.props;
         border: 2px dashed var(--c-outline-h);
         width: max-content;
         min-width: max-content;
+        max-width: 100%;
+        box-sizing: border-box;
         
     }
 
@@ -31,6 +33,13 @@ const { name, role, email, "phone-number": phoneNumber} = Astro.props;
         margin-top: .25rem;
         font-size: .9rem;
         color: var(--c-text-soft);
+    }
+
+    @media (max-width: 900px) {
+        .person-tile {
+            width: 100%;
+            min-width: 0;
+        }
     }
 
 </style>

@@ -6,6 +6,34 @@ import Map from '../components/map.astro';
 import IconSpan from '../components/icon-span.astro';
 import PersonTile from '../components/person-tile.astro';
 import AccountNumber from '../components/account-number.astro';
+import Hero from '../components/hero.astro';
+
+const people = [
+    {
+        name: "Andrzej Sobański",
+        role: "Prezes klubu",
+        email: "a.sobanski@plazik.pl",
+        "phone-number": "+48 666 666 666",
+    },
+    {
+        name: "Maja Górska",
+        role: "Ekspert od PR",
+        email: "m.gorska@plazik.pl",
+        "phone-number": "+48 666 666 666",
+    },
+    {
+        name: "Seweryn Woliński",
+        role: "Naczelny informatyk",
+        email: "s.wolinski@plazik.pl",
+        "phone-number": "+48 666 666 666",
+    },
+    {
+        name: "Tobiasz Grala",
+        role: "Cała polska Grala",
+        email: "t.grala@plazik.pl",
+        "phone-number": "+48 666 666 666",
+    },
+];
 
 ---
 
@@ -24,19 +52,15 @@ import AccountNumber from '../components/account-number.astro';
 
         display: flex;
         flex-direction: row;
+        align-items: stretch;
         gap: 3rem;
         padding: 3.5rem;
-    
+
         overflow: visible;
 
         width: 100vw;
         max-width: 1200px;
         margin: 0 auto;
-    
-        align-items: stretch;
-        align-content: stretch;
-        justify-content: stretch;
-        justify-items: stretch;
     }
 
     .map-container {
@@ -44,14 +68,13 @@ import AccountNumber from '../components/account-number.astro';
         padding: 0;
         min-height: 100%;
         overflow: hidden;
-        object-fit: cover;
     }
 
     .map {
         height: 100%;
     }
 
-    .cards-wrapper { 
+    .cards-wrapper {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -64,6 +87,8 @@ import AccountNumber from '../components/account-number.astro';
         overflow-x: scroll;
         gap: 1rem;
         padding-top: .75rem;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .branch-info {
@@ -80,7 +105,7 @@ import AccountNumber from '../components/account-number.astro';
     .bank-account > p {
         font-size: smaller;
         color: #686868;
-        
+
         text-align: justify;
     }
 
@@ -102,10 +127,6 @@ import AccountNumber from '../components/account-number.astro';
             color: #9FB09F;
         }
 
-        .address {
-
-        }
-
         .numbers {
             display: flex;
             flex-direction: row;
@@ -113,14 +134,66 @@ import AccountNumber from '../components/account-number.astro';
             width: 100%;
         }
     }
+
+    @media (max-width: 900px) {
+        .contact {
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        .cards-wrapper {
+            flex-direction: row;
+            flex-wrap: wrap;
+            max-width: 100%;
+        }
+
+        .branch-info {
+            flex: 1 1 100%;
+        }
+
+        .person-tiles {
+            flex-direction: column;
+            overflow-x: visible;
+            gap: .75rem;
+        }
+
+        .legal {
+            flex: 1 1 auto;
+            width: 100%;
+        }
+
+        .map-container,
+        .map {
+            min-height: 45vh;
+            height: 45vh;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .contact {
+            padding: 1rem;
+            gap: 1rem;
+            font-size: 11px;
+        }
+
+        .legal .numbers {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+        }
+    }
 </style>
 
 <BaseLayout class="base">
-	<section class="contact">
+    <Hero />
+    <section class="contact">
         <Card class="map-container">
-            <Map class="map"/>
+            <Map class="map" />
         </Card>
-        
+
         <div class="cards-wrapper">
             <Card class="branch-info">
                 <IconSpan icon="people">
@@ -132,31 +205,9 @@ import AccountNumber from '../components/account-number.astro';
                     <div>klub@plazik.pl</div>
                 </IconSpan>
                 <div class="person-tiles">
-                    <PersonTile
-                        name="Andrzej Sobański"
-                        role="Prezes klubu"
-                        email="a.sobanski@plazik.pl"
-                        phone-number="+48 666 666 666"
-                        
-                    />
-                    <PersonTile
-                        name="Maja Górska"
-                        role="Ekspert od PR"
-                        email="m.gorska@plazik.pl"
-                        phone-number="+48 666 666 666"
-                    />
-                    <PersonTile
-                        name="Seweryn Woliński"
-                        role="Naczelny informatyk"
-                        email="s.wolinski@plazik.pl"
-                        phone-number="+48 666 666 666"
-                    />
-                    <PersonTile
-                        name="Tobiasz Grala"
-                        role="Cała polska Grala"
-                        email="t.grala@plazik.pl"
-                        phone-number="+48 666 666 666"
-                    />
+                    {people.map((person) => (
+                        <PersonTile {...person} />
+                    ))}
                 </div>
                 <div class="bank-account">
                     <h3>Dane bankowe</h3>
