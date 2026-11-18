@@ -3,13 +3,13 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "astro": "bunx --bun astro",
     "dev": "astro dev",
     "build": "astro build",
-    "start": "bun ./dist/server/entry.mjs"
+    "start": "node ./dist/server/entry.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^11.1.14",

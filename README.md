@@ -12,8 +12,8 @@ bun run dev
 ## Server build
 
 The site uses the Astro Node adapter with server output (`bun run build`).
-In production the server listens on `HOST` (default `0.0.0.0`) and `PORT`
-(default `4321`):
+Running the built server requires Node.js 24 or newer. It listens on `HOST`
+(default `0.0.0.0`) and `PORT` (default `4321`):
 
 ```sh
 bun run build && bun run start
@@ -37,7 +37,7 @@ pick up new data automatically. No changes to the container are needed.
 
 ## Docker
 
-The image runs the Astro server on a non-root distroless Node base — no shell,
+The image runs the Astro server on a non-root distroless Node 24 base — no shell,
 no static file server, no Bun installation in the final image:
 
 ```sh

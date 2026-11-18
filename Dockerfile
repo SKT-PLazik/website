@@ -10,7 +10,7 @@ RUN bun install --frozen-lockfile
 COPY . .
 RUN bun run build
 
-FROM gcr.io/distroless/nodejs22-debian12:nonroot
+FROM gcr.io/distroless/nodejs24-debian12:nonroot
 COPY --from=build /app/dist /app/dist
 COPY --from=build /app/node_modules /app/node_modules
 COPY --from=build /app/package.json /app/package.json
