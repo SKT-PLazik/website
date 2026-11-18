@@ -9,9 +9,10 @@
     "astro": "bunx --bun astro",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "start": "bun ./dist/server/entry.mjs"
   },
   "dependencies": {
+    "@astrojs/node": "^11.1.14",
     "astro": "^7.2.10"
   },
   "allowScripts": {
