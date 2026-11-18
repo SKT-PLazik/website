@@ -171,20 +171,28 @@ jobs:
         run: |
           tag="v${VERSION}"
           assets=(artifacts/checksums.txt artifacts/*.tar.gz artifacts/*.zip)
-          if [ "$IS_PR" = "true" ]; then
-            # Re-running a PR workflow replaces the previous prerelease assets.
-            gh release delete "$tag" --yes --cleanup-tag >/dev/null 2>&1 || true
+
+          # A PR rerun recreates its prerelease at the new commit. If deletion
+          # fails, fall through to updating the existing release's assets.
+          if [ "$IS_PR" = "true" ] && gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release delete "$tag" \
+              --repo "$GITHUB_REPOSITORY" \
+              --yes \
+              --cleanup-tag || true
+          fi
+
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$tag" \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber \
+              "${assets[@]}"
+          elif [ "$IS_PR" = "true" ]; then
             gh release create "$tag" \
               --repo "$GITHUB_REPOSITORY" \
               --target "$GITHUB_SHA" \
               --title "$tag" \
               --prerelease \
               --notes "Automated prerelease for PR #${PR_NUMBER} (${GITHUB_SHA:0:7})." \
-              "${assets[@]}"
-          elif gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-            gh release upload "$tag" \
-              --repo "$GITHUB_REPOSITORY" \
-              --clobber \
               "${assets[@]}"
           else
             gh release create "$tag" \
